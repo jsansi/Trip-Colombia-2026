@@ -236,7 +236,7 @@
     <h2 class="sec-title">Tips del viaje</h2>
     <p class="sec-sub">&nbsp;</p>
     <div class="grid">
-      <div class="card"><h3>🧳 Equipaje</h3><p>El vuelo internacional de Jaime (tarifa Light) no incluye maleta facturada, y Wingo "GO Standard" solo incluye artículo personal. Si llevan maleta, cómprenla antes en la web: en el aeropuerto sale más cara.</p></div>
+      <div class="card"><h3>🧳 Equipaje</h3><p>Solo el vuelo Cartagena → Medellín incluye maleta de bodega. LATAM incluye mano de 12 kg, el vuelo internacional de Jaime es tarifa Light y Wingo "GO Standard" suele incluir solo artículo personal. Si llevan maleta grande, cómprenla antes en la web: en el aeropuerto sale más cara.</p></div>
       <div class="card"><h3>🚕 Moverse</h3><p>Uber, InDriver o taxi del aeropuerto. Los anfitriones recomiendan Uber o InDriver como opciones seguras.</p></div>
       <div class="card"><h3>⏳ Días de traslado</h3><p>El check-out es a las 11:00 y los vuelos salen en la tarde. Pregunten al anfitrión si pueden dejar las maletas un rato, o usen un guardaequipaje.</p></div>
       <div class="card"><h3>🌦️ Clima</h3><p>Cartagena ~30 °C y húmedo. Medellín ~22 °C, la "eterna primavera". Bogotá ~14 °C, con noches frías y lluvia. ¡Capas!</p></div>
@@ -297,9 +297,9 @@ const DAYS = [
         ["Tarde","Museo del Oro",""],
         ["Noche","🎉 Andrés Carne de Res o Zona T","Jueves de fiesta bogotana"]]},
   {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado + rumba", icons:"✈️🎉",
-    ev:[["11:00","Check-out Bogotá",""],
-        ["Por confirmar","Bogotá → Cartagena","Ambos · LATAM LA4122",true],
-        ["15:00+","Check-in Airbnb","Loft frente a la playa con terraza privada"],
+    ev:[["11:00","Check-out Bogotá","Salir al aeropuerto ~14:00"],
+        ["17:10","Bogotá → Cartagena","Ambos · LATAM LA4122 · llega 18:40 · solo equipaje de mano"],
+        ["19:15","Check-in Airbnb","Loft frente a la playa con terraza privada"],
         ["Noche","🎉 Viernes en Getsemaní",""]]},
   {date:"2026-12-05", city:"ctg2", title:"Party boat a Cholón", sub:"Islas + fiesta en el agua", icons:"🛥️🎉",
     ev:[["Mañana","Salida en barco a Barú","Sábado = botes con DJ"],
@@ -317,16 +317,16 @@ const FLIGHTS = [
   {date:"Jue 26 nov", from:"MDE", to:"CTG", dep:"16:35", arr:"17:50", air:"Avianca AV9718", who:"Jaime"},
   {date:"Sáb 28 nov", from:"CTG", to:"MDE", dep:"14:35", arr:"15:50", air:"Avianca AV9559", who:"Jaime & Ariel · asientos juntos"},
   {date:"Mar 1 dic",  from:"MDE", to:"BOG", dep:"16:32", arr:"17:30", air:"Wingo", who:"Jaime & Ariel · asientos juntos"},
-  {date:"Vie 4 dic",  from:"BOG", to:"CTG", dep:"¿?", arr:"¿?", air:"LATAM LA4122", who:"Jaime & Ariel · hora por confirmar"},
+  {date:"Vie 4 dic",  from:"BOG", to:"CTG", dep:"17:10", arr:"18:40", air:"LATAM LA4122", who:"Jaime & Ariel · mochila + mano 12 kg"},
   {date:"Dom 6 dic",  from:"CTG", to:"MDE", dep:"09:35", arr:"10:50", air:"Avianca AV9753", who:"Jaime"},
   {date:"Dom 6 dic",  from:"MDE", to:"SAL", dep:"14:10", arr:"15:50", air:"Avianca AV370", who:"Jaime"},
 ];
 
 const HOMES = [
-  {city:"ctg1", name:"Jacuzzi privado · Vista al mar · Atardecer piso 12", zona:"Frente al mar, cerca del aeropuerto", in:"Jue 26 nov · 3:00 pm", out:"Sáb 28 nov · 11:00 am", entrada:"Con teclado (código)", maps:"Edificio Dominique Cartagena"},
-  {city:"mde",  name:"Loft de diseño con jacuzzi privado", zona:"El Poblado, entre Mall Ventura y Bancolombia", in:"Sáb 28 nov · 3:00 pm", out:"Mar 1 dic · 11:00 am", entrada:"Recibe el personal del edificio", maps:"Mall Ventura Medellín"},
+  {city:"ctg1", name:"Jacuzzi privado · Vista al mar · Atardecer piso 12", zona:"Frente al mar, cerca del aeropuerto", in:"Jue 26 nov · 3:00 pm", out:"Sáb 28 nov · 11:00 am", entrada:"Con teclado (código)", maps:"Aeropuerto Rafael Núñez Cartagena"},
+  {city:"mde",  name:"Loft de diseño con jacuzzi privado", zona:"El Poblado", in:"Sáb 28 nov · 3:00 pm", out:"Mar 1 dic · 11:00 am", entrada:"Recibe el personal del edificio", maps:"El Poblado Medellín"},
   {city:"bog",  name:"Espectacular vista en Chapinero", zona:"Chapinero", in:"Mar 1 dic · 3:00 pm", out:"Vie 4 dic · 11:00 am", entrada:"Cerradura inteligente", maps:"Chapinero Bogotá"},
-  {city:"ctg2", name:"Modern loft on the beach · Terraza privada", zona:"Morros, zona de playa", in:"Vie 4 dic · 3:00 pm", out:"Dom 6 dic · 12:00 pm", entrada:"Cerradura inteligente", maps:"Morros Vitri Cartagena"},
+  {city:"ctg2", name:"Modern loft on the beach · Terraza privada", zona:"Morros, zona de playa", in:"Vie 4 dic · 3:00 pm", out:"Dom 6 dic · 12:00 pm", entrada:"Cerradura inteligente", maps:"La Boquilla Cartagena"},
 ];
 
 const CHECK = {
