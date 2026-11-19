@@ -358,12 +358,15 @@ const CITY = {
 
 const DAYS = [
   {date:"2026-11-26", city:"ctg1", title:"¡Llegada a Cartagena!", sub:"Día de vuelos", icons:"✈️🏠",
-    ev:[["09:35","San Salvador → Medellín","Jaime · Avianca AV369 · llega 13:10"],
+    ev:[["06:30","Richmond → Fort Lauderdale","Ariel · JetBlue B6 1145 · llega 09:01"],
+        ["09:35","San Salvador → Medellín","Jaime · Avianca AV369 · llega 13:10"],
+        ["09:47","Fort Lauderdale → Cartagena","Ariel · JetBlue B6 1783 · llega 12:45 (conexión corta en FLL)"],
+        ["15:00","Check-in Airbnb (Ariel)","Jacuzzi privado con vista al mar, piso 12"],
         ["16:35","Medellín → Cartagena","Jaime · Avianca AV9718 · llega 17:50"],
-        ["—","Llegada de Ariel","Por confirmar",true],
-        ["~18:15","Check-in Airbnb","Jacuzzi privado con vista al mar, piso 12"]],
+        ["~18:15","Jaime llega al Airbnb","¡Juntos en Cartagena! 🥂"]],
     opts:{
-      rec:[["Noche","Cena y paseo por Getsemaní","Plaza de la Trinidad: ambiente callejero para arrancar suave"]],
+      rec:[["13–15 h","Ariel: almuerzo cerca del Airbnb mientras llega la hora del check-in","Preguntar al anfitrión si se puede entrar antes o dejar la maleta"],
+           ["Noche","Cena y paseo por Getsemaní","Plaza de la Trinidad: ambiente callejero para arrancar suave"]],
       chill:[["Noche","Jacuzzi con vista al mar + comida a domicilio","Llegar, desempacar y brindar 🥂"]],
       party:[["Noche","Getsemaní de rumba","Los jueves ya hay ambiente: bares de la Calle de la Media Luna"]]}},
 
@@ -469,15 +472,18 @@ const DAYS = [
       party:[["Noche","Última rumba en Getsemaní","⚠️ Jaime vuela 09:35: calculen la hora de volver 😅"]]}},
 
   {date:"2026-12-06", city:"ctg2", title:"Regreso a casa", sub:"Día de vuelos", icons:"✈️💛",
-    ev:[["06:45","Salir al aeropuerto","Jaime"],
+    ev:[["06:45","Jaime sale al aeropuerto","Despedida 💛"],
         ["09:35","Cartagena → Medellín","Jaime · Avianca AV9753 · llega 10:50"],
+        ["~11:15","Ariel: check-out y salida al aeropuerto","Check-out máximo 12:00 · vuelo internacional: 3 h antes"],
         ["14:10","Medellín → San Salvador","Jaime · Avianca AV370 · llega 15:50"],
-        ["—","Regreso de Ariel","Por confirmar",true],
-        ["12:00","Check-out Airbnb",""]],
+        ["14:36","Cartagena → Miami","Ariel · American AA 2170 · llega 17:40"],
+        ["21:21","Miami → Richmond","Ariel · American AA 2795 · llega 23:48"]],
     opts:{}},
 ];
 
 const FLIGHTS = [
+  {date:"Jue 26 nov", from:"RIC", to:"FLL", dep:"06:30", arr:"09:01", air:"JetBlue B6 1145", who:"Ariel"},
+  {date:"Jue 26 nov", from:"FLL", to:"CTG", dep:"09:47", arr:"12:45", air:"JetBlue B6 1783", who:"Ariel · mano + artículo personal"},
   {date:"Jue 26 nov", from:"SAL", to:"MDE", dep:"09:35", arr:"13:10", air:"Avianca AV369", who:"Jaime"},
   {date:"Jue 26 nov", from:"MDE", to:"CTG", dep:"16:35", arr:"17:50", air:"Avianca AV9718", who:"Jaime"},
   {date:"Sáb 28 nov", from:"CTG", to:"MDE", dep:"14:35", arr:"15:50", air:"Avianca AV9559", who:"Jaime & Ariel · asientos juntos"},
@@ -485,6 +491,8 @@ const FLIGHTS = [
   {date:"Vie 4 dic",  from:"BOG", to:"CTG", dep:"17:10", arr:"18:40", air:"LATAM LA4122", who:"Jaime & Ariel · mochila + mano 12 kg"},
   {date:"Dom 6 dic",  from:"CTG", to:"MDE", dep:"09:35", arr:"10:50", air:"Avianca AV9753", who:"Jaime"},
   {date:"Dom 6 dic",  from:"MDE", to:"SAL", dep:"14:10", arr:"15:50", air:"Avianca AV370", who:"Jaime"},
+  {date:"Dom 6 dic",  from:"CTG", to:"MIA", dep:"14:36", arr:"17:40", air:"American AA 2170", who:"Ariel"},
+  {date:"Dom 6 dic",  from:"MIA", to:"RIC", dep:"21:21", arr:"23:48", air:"American AA 2795", who:"Ariel"},
 ];
 
 const HOMES = [
