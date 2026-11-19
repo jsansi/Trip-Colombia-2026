@@ -22,6 +22,9 @@ Página web del viaje de Jaime y Ariel a Colombia (26 nov – 6 dic 2026), publi
 - `privado/datos-viaje.md`: datos crudos (vuelos con códigos, direcciones de Airbnb).
 - `privado/plan-de-viaje.md`: plan completo (logística, salud, comida, tours, fiesta, finanzas, checklist).
 
+## Respaldo de `privado/`
+`privado/` es su **propio repositorio git** (privado en GitHub, aparte del público). Cuando cambie algo ahí: `cd privado && git add . && git commit && git push`. Nunca hacerlo público.
+
 ## Flujo de publicación
 1. Editar `index.html` → verificar el JS (`node --check` sobre el contenido del `<script>`).
 2. Revisar que no haya datos privados.
