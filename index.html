@@ -113,6 +113,32 @@
   .tips h3{font-size:1.05rem;margin-bottom:6px}
   .tips p{margin:0;font-size:.93rem;color:var(--muted)}
 
+  /* COMIDA / OUTFITS / PRECIOS */
+  .food-card .price{display:inline-block;font-size:.8rem;font-weight:700;background:var(--sand);border-radius:999px;padding:2px 10px;margin:6px 0}
+  .food-card p{margin:4px 0 0;font-size:.92rem;color:var(--muted)}
+  .dishes{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .dish{background:#fff;border:1.5px solid var(--sand-2);border-radius:999px;padding:6px 14px;font-size:.9rem}
+  .sub-h{font-family:"Fraunces",serif;font-size:1.3rem;margin:34px 0 14px}
+  .clima-card{text-align:center}
+  .clima-card .temp{font-family:"Fraunces",serif;font-size:2.2rem;color:var(--clay);line-height:1.1;margin:6px 0}
+  .clima-card p{margin:6px 0 0;font-size:.9rem;color:var(--muted)}
+  .dress{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .dress ul{margin:8px 0 0;padding-left:18px;font-size:.93rem}
+  .dress .no li::marker{content:"✕  ";color:var(--clay)}
+  .dress .yes li::marker{content:"✓  ";color:var(--sage)}
+  .look h3{font-size:1.05rem;margin-bottom:6px}
+  .look p{margin:0;font-size:.93rem;color:var(--muted)}
+  .ptable{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:.93rem}
+  .ptable th{background:var(--ink);color:var(--cream);text-align:left;padding:12px 14px;font-weight:500}
+  .ptable td{padding:11px 14px;border-top:1px dashed var(--sand-2);vertical-align:top}
+  .ptable td small{display:block;color:var(--muted)}
+  .ptable .city-row td{background:var(--sand);font-family:"Fraunces",serif;font-weight:600;border-top:0}
+  .res{font-size:.75rem;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .res.si{background:#F6DCC7;color:var(--clay)}
+  .res.no{background:var(--sage-l);color:#4d5733}
+  .table-wrap{overflow-x:auto;border-radius:var(--radius)}
+  @media (max-width:760px){ .dress{grid-template-columns:1fr} .ptable{font-size:.85rem} .ptable td,.ptable th{padding:9px 10px} }
+
   footer{background:var(--sand);text-align:center;padding:40px 16px;color:var(--muted);font-size:.9rem}
   footer svg{width:120px;display:block;margin:0 auto 10px}
 
@@ -136,6 +162,9 @@
     <a href="#itinerario">📅 Itinerario</a>
     <a href="#vuelos">✈️ Vuelos</a>
     <a href="#casas">🏠 Alojamientos</a>
+    <a href="#comida">🍽️ Comida</a>
+    <a href="#outfits">👗 Qué ponerse</a>
+    <a href="#precios">🎟️ Precios</a>
     <a href="#maleta">🧳 Maleta</a>
     <a href="#tips">💡 Tips</a>
   </div>
@@ -218,8 +247,57 @@
   </div>
 </section>
 
+<!-- COMIDA -->
+<section id="comida">
+  <div class="wrap">
+    <div class="eyebrow">A comer</div>
+    <h2 class="sec-title">Dónde comer y qué probar</h2>
+    <p class="sec-sub">Lugares ricos y accesibles, y algún gustito. Precios aproximados por plato (COP 10.000 ≈ USD 3).</p>
+    <div class="chips" id="food-chips"></div>
+    <div class="grid" id="food"></div>
+    <h3 class="sub-h">😋 Platos que hay que probar</h3>
+    <div class="dishes" id="dishes"></div>
+  </div>
+</section>
+
+<!-- OUTFITS + CLIMA -->
+<section id="outfits" style="background:var(--sand)">
+  <div class="wrap">
+    <div class="eyebrow">Clima y estilo</div>
+    <h2 class="sec-title">Qué ponerse</h2>
+    <p class="sec-sub">Tres climas en un viaje: calor del Caribe, primavera paisa y frío bogotano.</p>
+    <div class="grid" id="clima"></div>
+
+    <h3 class="sub-h">🕺 Dress code para salir de noche</h3>
+    <p class="sec-sub" style="margin-bottom:14px">En Medellín (Provenza / El Poblado) <b>lo revisan en la puerta</b>. En Cartagena y Bogotá es un poco más relajado, pero esto funciona en todos lados.</p>
+    <div class="dress">
+      <div class="card"><h3>👔 Él</h3>
+        <ul class="yes"><li>Pantalón largo (jeans sin rotos o chinos)</li><li>Camisa o camiseta con manga, bien puesta</li><li>Tenis limpios o zapatos</li></ul>
+        <ul class="no"><li>Shorts o bermudas</li><li>Chanclas o sandalias</li><li>Camiseta sin mangas, gorra, sudadera</li></ul>
+      </div>
+      <div class="card"><h3>💃 Ella</h3>
+        <ul class="yes"><li>Vestido, falda o pantalón ajustado + top</li><li>Cartera pequeña</li><li>Botín o plataforma baja, o tenis "fashion" (los adoquines y el baile no perdonan tacón fino)</li></ul>
+        <ul class="no"><li>Mochila o bolso grande</li><li>Ropa transparente (algunas puertas)</li><li>Chanclas</li></ul>
+      </div>
+    </div>
+
+    <h3 class="sub-h">📸 Outfits por plan</h3>
+    <div class="grid" id="looks"></div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios">
+  <div class="wrap">
+    <div class="eyebrow">Plata y reservas</div>
+    <h2 class="sec-title">Entradas y precios</h2>
+    <p class="sec-sub">Por persona, en pesos colombianos y aproximados (pueden cambiar). <span class="res si">Reservar</span> = mejor comprar antes.</p>
+    <div class="table-wrap"><table class="ptable" id="prices"></table></div>
+  </div>
+</section>
+
 <!-- MALETA -->
-<section id="maleta">
+<section id="maleta" style="background:var(--sand)">
   <div class="wrap">
     <div class="eyebrow">Checklist</div>
     <h2 class="sec-title">La maleta</h2>
@@ -230,7 +308,7 @@
 </section>
 
 <!-- TIPS -->
-<section id="tips" class="tips" style="background:var(--sand)">
+<section id="tips" class="tips">
   <div class="wrap">
     <div class="eyebrow">Para no olvidar</div>
     <h2 class="sec-title">Tips del viaje</h2>
@@ -337,6 +415,74 @@ const CHECK = {
   "💳 Dinero":["Tarjetas","Algo de efectivo en pesos colombianos","Avisar al banco del viaje"],
 };
 
+const FOOD = {
+  ctg:{label:"🏖️ Cartagena", places:[
+    ["El Coroncoro","Getsemaní","13–60k","Típico y popular entre locales. Buen precio."],
+    ["La Cocina de Pepina","Getsemaní","20–70k","Uno de los mejores pescados fritos de la ciudad."],
+    ["Espíritu Santo","Centro","15–45k","Almuerzo cartagenero abundante y barato."],
+    ["La Mulata","Centro","desde 45k","Comida típica, porciones generosas."],
+    ["Fritos La Mona","Getsemaní","5–10k","Fritos de la calle: carimañolas y empanadas."],
+    ["Calle de la Media Luna","Getsemaní","desde 15k","Almuerzos ejecutivos: sopa + plato fuerte + jugo."],
+    ["Celele ✨","Getsemaní","40–120k","Para darse un gusto: cocina caribeña moderna. Cierra domingos. Reservar."]],
+   dishes:["🐟 Pescado frito + arroz con coco + patacón","🥚 Arepa de huevo","🥟 Carimañolas","🦐 Ceviche cartagenero","🍖 Posta negra cartagenera","🧀 Mote de queso","🥤 Jugo de corozo o níspero","🥥 Cocadas","🍋 Limonada de coco"]},
+  mde:{label:"🌸 Medellín", places:[
+    ["Mondongo's","El Poblado","40–50k","El clásico paisa: mondongo y bandeja paisa."],
+    ["Hacienda","El Poblado","40–50k","Tienen bandeja paisa \"pequeña\" (la normal es gigante)."],
+    ["Desayunadero La 10","El Poblado","económico","Desayuno típico antioqueño."],
+    ["Chuscalito","Vía Las Palmas","medio","Comida típica con vista a la ciudad. Combina con los miradores."],
+    ["Carmen ✨","El Poblado","alto","Recomendado por Condé Nast. Cena especial. Reservar."],
+    ["Mall Ventura","Al lado del Airbnb","variado","Para algo rápido o el día del vuelo."]],
+   dishes:["🍛 Bandeja paisa","🍲 Mondongo","🥘 Sancocho","🫓 Arepa paisa","🥓 Chicharrón","🌽 Mazamorra","🧇 Obleas con arequipe","☕ Café de origen","🥃 Aguardiente antioqueño"]},
+  bog:{label:"🏔️ Bogotá", places:[
+    ["La Puerta Falsa","La Candelaria","10–20k","El restaurante más antiguo de Bogotá (1816). Tamal y chocolate. Al lado de la Plaza de Bolívar."],
+    ["Casa Vieja","Varias sedes","medio","Ajiaco de receta tradicional."],
+    ["Antigua Santa Fe","—","medio","Famoso por su ajiaco."],
+    ["Andrés Carne de Res 🎉","Chía (45 min)","alto","Comida + fiesta legendaria. Reservar. Andrés D.C. (Zona T) queda más cerca."],
+    ["Chapinero y Zona G","Cerca del Airbnb","variado","La zona gastronómica más cercana."]],
+   dishes:["🥣 Ajiaco","🫔 Tamal tolimense","🍫 Chocolate santafereño","🥯 Almojábana y pandebono","🍢 Fritanga","🐷 Lechona","🔥 Canelazo (caliente, con aguardiente)"]},
+};
+
+const CLIMA = [
+  ["🏖️ Cartagena","30°","noche ~26°","Calor húmedo todo el día, también de noche. Puede caer algún aguacero corto."],
+  ["🌸 Medellín","24°","noche ~15°","Primavera. Lluvias en la tarde: lleven un paraguas pequeño."],
+  ["🏔️ Bogotá","19°","noche ~8–11°","Fresco de día, frío de noche y lluvia frecuente. Sol fuerte por la altura."],
+  ["⛪ Catedral de Sal","14°","adentro","Frío y húmedo dentro de la mina: chaqueta ligera."],
+];
+
+const LOOKS = [
+  ["🏖️ Cartagena de día","Lino o algodón en colores claros, sombrero, lentes de sol, bloqueador 50. Tenis livianos o sandalias con tira para los adoquines."],
+  ["🌙 Cartagena de noche","Él: pantalón de lino + camisa de lino o guayabera. Ella: vestido fresco. Hace calor: nada de chaqueta."],
+  ["🛥️ Party boat a Cholón","Traje de baño puesto + camisa o pareo, zapatos de agua, bolsa seca para el celular, lentes con cordón. Nada de valor."],
+  ["🪨 Piedra del Peñol","Ropa deportiva, tenis con buen agarre, gorra, bloqueador, agua y efectivo para la entrada."],
+  ["🎨 Comuna 13 / Metrocable","Casual y tenis. Celular guardado: no llamar mucho la atención."],
+  ["🌸 Medellín de noche","Dress code completo (ver arriba) + chaqueta ligera, que refresca."],
+  ["🏔️ Bogotá de día","Capas: camiseta + suéter + chaqueta impermeable. Jeans, tenis o botines. Paraguas."],
+  ["🎉 Bogotá de noche","Abrigo de verdad (8–10°). Jeans + camisa o top + chaqueta, o vestido con medias y botines."],
+];
+
+const PRICES = [
+  ["🏖️ Cartagena"],
+  ["Party boat a Cholón","USD 70–100","+ tasa portuaria 26–32k ese día","si"],
+  ["Castillo San Felipe","38.000","Extranjeros · 7 am–6 pm","no"],
+  ["Convento de La Popa","15–20k","Subir en taxi","no"],
+  ["Ciudad Amurallada y Getsemaní","Gratis","","no"],
+  ["Discotecas (cover)","20–50k","Jue–sáb son las noches fuertes","no"],
+  ["🌸 Medellín"],
+  ["Tour Guatapé + Peñol","USD 35–60","Tour grupal · privado aparte","si"],
+  ["Piedra del Peñol (entrada)","~35.000","⚠️ Solo efectivo","no"],
+  ["Comuna 13 graffitour","Propina o USD 20–40","Free tour o pagado","si"],
+  ["Metro + Metrocable","~4.000","Por trayecto","no"],
+  ["Metrocable a Arví (línea L)","12–15k","Aparte del metro","no"],
+  ["Discotecas Provenza / Lleras (cover)","20–60k","Medallo Club ~30k","no"],
+  ["🏔️ Bogotá"],
+  ["Catedral de Sal","110–125k","Extranjeros · comprar online","si"],
+  ["Monserrate (teleférico o funicular)","27–32k","Ida y vuelta, lun–sáb","no"],
+  ["Museo del Oro","~5.000","Domingo gratis · lunes cerrado","no"],
+  ["Museo Botero","Gratis","Martes cerrado","no"],
+  ["Andrés Carne de Res","~150–250k","Cover + comida + tragos · ir en taxi","si"],
+  ["Discotecas Zona T / Zona Rosa (cover)","20–50k","Algunas hasta las 5 am","no"],
+];
+
 /* ========= ILUSTRACIONES BOHO ========= */
 const ART = {
   mar:`<svg viewBox="0 0 200 90"><circle cx="150" cy="34" r="18" fill="#D9A441"/><path d="M0 60 Q25 48 50 60 T100 60 T150 60 T200 60 V90 H0Z" fill="#DDA894"/><path d="M0 72 Q25 62 50 72 T100 72 T150 72 T200 72 V90 H0Z" fill="#C2703D"/><path d="M40 60 L40 22" stroke="#9C4F2A" stroke-width="3"/><path d="M40 22 q-18 0 -26 12 M40 22 q18 0 26 12 M40 22 q-10 -10 -24 -8 M40 22 q10 -10 24 -8" stroke="#8A9A5B" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`,
@@ -388,7 +534,7 @@ function setFiltro(f){ filtro=f; renderChips(); renderDays(); }
 setFiltro("all");
 
 document.addEventListener("click", e=>{
-  const chip = e.target.closest(".chip"); if(chip){ setFiltro(chip.dataset.f); return; }
+  const chip = e.target.closest(".chip[data-f]"); if(chip){ setFiltro(chip.dataset.f); return; }
   const stop = e.target.closest(".stop"); if(stop){ setFiltro(stop.dataset.city); $("#itinerario").scrollIntoView(); return; }
   const head = e.target.closest(".day-head");
   if(head){ const day=head.parentElement; const open=day.getAttribute("open-state")!=="true"; day.setAttribute("open-state",open); head.setAttribute("aria-expanded",open); }
@@ -417,6 +563,26 @@ $("#homes").innerHTML = HOMES.map(h=>{ const c=CITY[h.city]; return `
     </ul>
     <a class="btn" href="https://www.google.com/maps/search/${encodeURIComponent(h.maps)}" target="_blank" rel="noopener">Ver zona en el mapa →</a>
   </div>`;}).join("");
+
+// Comida
+let foodCity = "ctg";
+function renderFood(){
+  $("#food-chips").innerHTML = Object.entries(FOOD).map(([k,f])=>`<button class="chip food-chip" data-food="${k}" aria-pressed="${foodCity===k}">${f.label}</button>`).join("");
+  const f = FOOD[foodCity];
+  $("#food").innerHTML = f.places.map(p=>`<div class="card food-card"><h3>${p[0]}</h3><div style="font-size:.85rem;color:var(--muted)">📍 ${p[1]}</div><span class="price">💰 ${p[2]}</span><p>${p[3]}</p></div>`).join("");
+  $("#dishes").innerHTML = f.dishes.map(d=>`<span class="dish">${d}</span>`).join("");
+}
+renderFood();
+document.addEventListener("click", e=>{ const c=e.target.closest(".food-chip"); if(c){ foodCity=c.dataset.food; renderFood(); } });
+
+// Clima y outfits
+$("#clima").innerHTML = CLIMA.map(c=>`<div class="card clima-card"><b>${c[0]}</b><div class="temp">${c[1]}</div><small style="color:var(--muted)">${c[2]}</small><p>${c[3]}</p></div>`).join("");
+$("#looks").innerHTML = LOOKS.map(l=>`<div class="card look"><h3>${l[0]}</h3><p>${l[1]}</p></div>`).join("");
+
+// Precios
+$("#prices").innerHTML = `<thead><tr><th>Lugar</th><th>Precio</th><th></th></tr></thead><tbody>` +
+  PRICES.map(p=> p.length===1 ? `<tr class="city-row"><td colspan="3">${p[0]}</td></tr>` :
+    `<tr><td><b>${p[0]}</b>${p[2]?`<small>${p[2]}</small>`:""}</td><td style="white-space:nowrap">${p[1]}</td><td>${p[3]==="si"?'<span class="res si">Reservar</span>':'<span class="res no">En el lugar</span>'}</td></tr>`).join("") + `</tbody>`;
 
 // Checklist (se guarda en el navegador de cada persona)
 const KEY="trip-co-2026-check";
