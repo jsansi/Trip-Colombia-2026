@@ -80,6 +80,17 @@
   .ev .x small{display:block;color:var(--muted)}
   .tag{display:inline-block;font-size:.72rem;font-weight:700;background:var(--sage-l);color:#4d5733;border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:middle}
   .tag.warn{background:#F6DCC7;color:var(--clay)}
+  .tag.res-tag{background:var(--mustard);color:#fff}
+  .mode-box{background:#fff;border-radius:var(--radius);padding:16px 18px;margin:-6px 0 22px;box-shadow:var(--shadow)}
+  .mode-q{font-family:"Fraunces",serif;font-size:1.15rem;margin-bottom:10px}
+  .mode-legend{font-size:.85rem;color:var(--muted);margin-top:10px}
+  .fixed-h,.opt-h{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 2px}
+  .fixed-h{color:var(--muted)}
+  .opt{border-radius:14px;padding:8px 14px 4px;margin-top:12px}
+  .opt .ev:first-of-type{border-top:0}
+  .opt-rec{background:#FBF1DE}.opt-rec .opt-h{color:#A9761A}
+  .opt-chill{background:#EEF1E4}.opt-chill .opt-h{color:#5E6B3A}
+  .opt-party{background:#F8E6DD}.opt-party .opt-h{color:var(--clay)}
 
   /* VUELOS / CASAS */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
@@ -223,6 +234,11 @@
     <h2 class="sec-title">Itinerario</h2>
     <p class="sec-sub">Toca un día para ver los detalles. Los días libres los iremos llenando de planes.</p>
     <div class="chips" id="chips"></div>
+    <div class="mode-box">
+      <div class="mode-q">¿Cómo amanecimos hoy? 🤔</div>
+      <div class="chips" id="modes" style="margin-bottom:0"></div>
+      <div class="mode-legend">Cada día tiene 3 opciones. Lo marcado con <span class="tag res-tag">🎟️ reservar</span> conviene reservarlo antes.</div>
+    </div>
     <div class="days" id="days"></div>
   </div>
 </section>
@@ -318,6 +334,7 @@
       <div class="card"><h3>🚕 Moverse</h3><p>Uber, InDriver o taxi del aeropuerto. Los anfitriones recomiendan Uber o InDriver como opciones seguras.</p></div>
       <div class="card"><h3>⏳ Días de traslado</h3><p>El check-out es a las 11:00 y los vuelos salen en la tarde. Pregunten al anfitrión si pueden dejar las maletas un rato, o usen un guardaequipaje.</p></div>
       <div class="card"><h3>🌦️ Clima</h3><p>Cartagena ~30 °C y húmedo. Medellín ~22 °C, la "eterna primavera". Bogotá ~14 °C, con noches frías y lluvia. ¡Capas!</p></div>
+      <div class="card"><h3>🤕 Kit anti-resaca</h3><p>Suero oral (Electrolit o Pedialyte, en cualquier farmacia), agua de coco en Cartagena, un <b>"levantamuertos"</b> (cóctel de mariscos costeño), <b>caldo de costilla</b> en Bogotá y una buena arepa con huevo. Y agua entre trago y trago 😉</p></div>
       <div class="card"><h3>💵 Dinero</h3><p>Peso colombiano (COP). Lleven algo de efectivo para taxis, propinas y puestos de comida. Las tarjetas se aceptan en casi todos lados.</p></div>
       <div class="card"><h3>🛂 Migración</h3><p>Revisen si deben llenar el formulario Check-MIG de Migración Colombia antes de volar (es online y gratis).</p></div>
     </div>
@@ -344,57 +361,127 @@ const DAYS = [
     ev:[["09:35","San Salvador → Medellín","Jaime · Avianca AV369 · llega 13:10"],
         ["16:35","Medellín → Cartagena","Jaime · Avianca AV9718 · llega 17:50"],
         ["—","Llegada de Ariel","Por confirmar",true],
-        ["15:00+","Check-in Airbnb","Jacuzzi privado con vista al mar, piso 12"]]},
-  {date:"2026-11-27", city:"ctg1", title:"Cartagena amurallada", sub:"Centro + rumba", icons:"🌴🎉",
-    ev:[["Mañana","La Popa + Ciudad Amurallada","Temprano, antes del calor"],
-        ["Tarde","Siesta 😴 + atardecer en la muralla",""],
-        ["Noche","🎉 Rumba en Getsemaní","Viernes: buena noche para salir"]]},
-  {date:"2026-11-28", city:"mde", title:"Rumbo a Medellín", sub:"Traslado + Provenza", icons:"✈️🎉",
+        ["~18:15","Check-in Airbnb","Jacuzzi privado con vista al mar, piso 12"]],
+    opts:{
+      rec:[["Noche","Cena y paseo por Getsemaní","Plaza de la Trinidad: ambiente callejero para arrancar suave"]],
+      chill:[["Noche","Jacuzzi con vista al mar + comida a domicilio","Llegar, desempacar y brindar 🥂"]],
+      party:[["Noche","Getsemaní de rumba","Los jueves ya hay ambiente: bares de la Calle de la Media Luna"]]}},
+
+  {date:"2026-11-27", city:"ctg1", title:"Cartagena amurallada", sub:"Centro histórico", icons:"🌴🎉",
+    ev:[],
+    opts:{
+      rec:[["8–11 am","La Popa (en taxi) + Ciudad Amurallada","Temprano, antes del calor fuerte"],
+           ["Almuerzo","El Coroncoro o Espíritu Santo","Típico, rico y barato"],
+           ["Tarde","Siesta 😴 + atardecer en la muralla",""],
+           ["Noche","Rumba en Getsemaní","Viernes: de las mejores noches para salir"]],
+      chill:[["Mañana","Playa frente al Airbnb o jacuzzi",""],
+             ["Tarde","Paseo corto por el centro + helado","Desde las 4 pm, cuando baja el sol"],
+             ["Noche","Cena en La Cocina de Pepina","Pescado frito top"]],
+      party:[["Atardecer","Catamarán al atardecer con música","Por la bahía, con tragos",true],
+             ["Noche","Centro (Eivissa) o Getsemaní (Seven 7)","Reggaetón y crossover · cover ~20–50k"]]}},
+
+  {date:"2026-11-28", city:"mde", title:"Rumbo a Medellín", sub:"Traslado", icons:"✈️🌸",
     ev:[["11:00","Check-out Cartagena",""],
-        ["14:35","Cartagena → Medellín","Ambos · Avianca AV9559 · llega 15:50 · 1 maleta incluida"],
-        ["15:00+","Check-in Airbnb","Loft de diseño en El Poblado"],
-        ["23:00","🎉 Sábado de reggaetón","Provenza o Parque Lleras, a minutos del Airbnb"]]},
+        ["14:35","Cartagena → Medellín","Ambos · Avianca AV9559 · llega 15:50"],
+        ["~17:00","Check-in Airbnb","Loft de diseño en El Poblado · el aeropuerto queda a ~1 h"]],
+    opts:{
+      rec:[["Noche","Cena en Provenza + un bar","Para conocer la zona sin acabarse"]],
+      chill:[["Noche","Cena en el centro comercial de al lado + jacuzzi del loft","Mañana es Guatapé, temprano"]],
+      party:[["23:00","🎉 Sábado de reggaetón en Provenza o Parque Lleras","Medallo Club (de Blessd) ~30k cover · a minutos del Airbnb"],
+             ["⚠️","Mañana hay Guatapé a las 7 am","Si la noche se alarga, miren el plan tranquilo del domingo"]]}},
+
   {date:"2026-11-29", city:"mde", title:"Guatapé + Piedra del Peñol", sub:"Excursión de día completo", icons:"🪨🚤",
-    ev:[["~07:00","Salida a Guatapé","~2 h de viaje"],
-        ["Mañana","Subir La Piedra del Peñol","740 escalones · la mejor vista de Antioquia"],
-        ["Tarde","Pueblo de colores + paseo en bote",""],
-        ["Noche","Descanso","Mañana hay más 😉"]]},
+    ev:[],
+    opts:{
+      rec:[["~07:00","Tour a Guatapé","~2 h de viaje · llevar efectivo",true],
+           ["Mañana","Subir La Piedra del Peñol","740 escalones · entrada ~35k (solo efectivo)"],
+           ["Tarde","Pueblo de colores + paseo en bote",""],
+           ["Noche","Descanso","Mañana hay más 😉"]],
+      chill:[["Mañana","😵 ¿Resaca? Muevan Guatapé al lunes","Avisen al tour con tiempo, o busquen uno que salga más tarde"],
+             ["Mediodía","Bandeja paisa en Hacienda o Mondongo's","Cura todo"],
+             ["Tarde","Metrocable K + plaza de Arví o Pueblito Paisa","Vistas sin esfuerzo"]],
+      party:[["Noche","Domingo flojo","Algunos bares de Provenza abiertos, pero la mayoría de discotecas descansa"]]}},
+
   {date:"2026-11-30", city:"mde", title:"Comuna 13 y miradores", sub:"Arte urbano + vistas", icons:"🎨🚡",
-    ev:[["Mañana","Graffitour Comuna 13","Escaleras eléctricas, murales y hip-hop"],
-        ["Atardecer","Metrocable Línea K","La ciudad desde el aire"],
-        ["Noche","Miradores de Las Palmas","Medellín iluminada"]]},
-  {date:"2026-12-01", city:"bog", title:"Rumbo a Bogotá", sub:"Traslado", icons:"🏠✈️🏠",
-    ev:[["11:00","Check-out Medellín","Quedan horas libres antes del vuelo"],
-        ["16:32","Medellín → Bogotá","Ambos · Wingo · llega 17:30"],
-        ["17:30+","Check-in Airbnb","Espectacular vista en Chapinero"]]},
+    ev:[],
+    opts:{
+      rec:[["Mañana","Graffitour Comuna 13","Escaleras eléctricas, murales y hip-hop en la calle",true],
+           ["Atardecer","Metrocable Línea K","La ciudad desde el aire · ~4k"],
+           ["Noche","Miradores de Las Palmas + cena en Chuscalito","Medellín iluminada"]],
+      chill:[["Mañana","Jardín Botánico + Parque Explora","Plano y relajado"],
+             ["Tarde","Plaza Botero + Museo de Antioquia",""],
+             ["Nota","Si movieron Guatapé para hoy","La Comuna 13 la pueden hacer ayer"]],
+      party:[["Noche","Rooftop en El Poblado o bar en Provenza","El lunes está más tranquilo, pero algo hay"]]}},
+
+  {date:"2026-12-01", city:"bog", title:"Rumbo a Bogotá", sub:"Traslado", icons:"✈️⛰️",
+    ev:[["11:00","Check-out Medellín","Pregunten si pueden dejar las maletas un rato"],
+        ["~13:30","Salir al aeropuerto","~1 h de camino"],
+        ["16:42","Medellín → Bogotá","Ambos · Wingo P5 7291 · llega 17:40 (nuevo horario)"],
+        ["~19:00","Check-in Airbnb","Espectacular vista en Chapinero · hora pico, calculen tráfico"]],
+    opts:{
+      rec:[["Mañana","Desayuno típico (Desayunadero La 10) + paseo por El Poblado",""],
+           ["Noche","Cena tranquila en Chapinero o Zona G","Bogotá está a 2.600 m: agua y poco trago esta noche"]],
+      chill:[["Mañana","Dormir hasta tarde y check-out justo",""],
+             ["Noche","Domicilio y descanso",""]],
+      party:[["Noche","Mejor hoy no 😉","La primera noche en la altura el trago pega el doble"]]}},
+
   {date:"2026-12-02", city:"bog", title:"Catedral de Sal", sub:"Zipaquirá", icons:"⛪✨",
-    ev:[["Mañana","Catedral de Sal de Zipaquirá","~1 h desde Bogotá · iglesia dentro de una mina de sal"],
-        ["Noche","Alumbrado navideño 🎄",""]]},
+    ev:[],
+    opts:{
+      rec:[["~09:00","Catedral de Sal de Zipaquirá","~1 h de viaje · entrada ~110–125k · comprar online",true],
+           ["Tarde","Almuerzo en Zipaquirá","Hay sede de La Puerta Falsa allá"],
+           ["Noche","Alumbrado navideño 🎄 + cena en Chapinero",""]],
+      chill:[["Mañana","Museo del Oro + Plaza de Bolívar + Museo Botero","Todo junto y cerca · Botero es gratis"],
+             ["Almuerzo","La Puerta Falsa (desde 1816)","Tamal y chocolate"],
+             ["Nota","La Catedral de Sal se puede mover a mañana",""]],
+      party:[["Noche","Zona T / Zona Rosa","Miércoles más suave: Presea Rooftop o El Macho Cantina"]]}},
+
   {date:"2026-12-03", city:"bog", title:"Monserrate + rumba", sub:"Vista y fiesta", icons:"⛰️🎉",
-    ev:[["Mañana","Monserrate en teleférico","Temprano, antes de las nubes"],
-        ["Tarde","Museo del Oro",""],
-        ["Noche","🎉 Andrés Carne de Res o Zona T","Jueves de fiesta bogotana"]]},
-  {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado + rumba", icons:"✈️🎉",
-    ev:[["11:00","Check-out Bogotá","Salir al aeropuerto ~14:00"],
-        ["17:10","Bogotá → Cartagena","Ambos · LATAM LA4122 · llega 18:40 · solo equipaje de mano"],
-        ["19:15","Check-in Airbnb","Loft frente a la playa con terraza privada"],
-        ["Noche","🎉 Viernes en Getsemaní",""]]},
-  {date:"2026-12-05", city:"ctg2", title:"Party boat a Cholón", sub:"Islas + fiesta en el agua", icons:"🛥️🎉",
-    ev:[["Mañana","Salida en barco a Barú","Sábado = botes con DJ"],
-        ["Día","🎉 Fiesta en Cholón + islas","Almuerzo incluido"],
-        ["Noche","Última noche en Cartagena","Dejar la maleta lista para mañana"]]},
-  {date:"2026-12-06", city:"ctg2", title:"Regreso a casa", sub:"Día de vuelos", icons:"✈️",
-    ev:[["09:35","Cartagena → Medellín","Jaime · Avianca AV9753 · llega 10:50"],
+    ev:[],
+    opts:{
+      rec:[["Mañana","Monserrate en teleférico o funicular","Temprano, antes de las nubes · ~27–32k"],
+           ["Almuerzo","Ajiaco en Casa Vieja o Antigua Santa Fe",""],
+           ["Tarde","Museo del Oro (si no fueron ayer)","Cerrado los lunes"],
+           ["Noche","🎉 Andrés Carne de Res","Comida + fiesta legendaria · ~45 min en taxi",true]],
+      chill:[["Tarde","Usaquén: paseo, tiendas y cafés",""],
+             ["Noche","Cena en Usaquén y a dormir temprano","Mañana hay vuelo"]],
+      party:[["Noche","Andrés Carne de Res (Chía) o Andrés D.C. + Zona T","Jueves de fiesta bogotana · algunas zonas abren hasta las 5 am",true]]}},
+
+  {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado", icons:"✈️🏖️",
+    ev:[["11:00","Check-out Bogotá","Dejar maletas o almorzar cerca"],
+        ["~14:00","Salir al aeropuerto","Viernes = tráfico"],
+        ["17:10","Bogotá → Cartagena","Ambos · LATAM LA4122 · llega 18:40"],
+        ["~19:15","Check-in Airbnb","Loft frente a la playa con terraza privada"]],
+    opts:{
+      rec:[["Mediodía","Almuerzo de despedida en Zona G / Chapinero",""],
+           ["Noche","Terraza del loft + cena en Getsemaní",""]],
+      chill:[["Noche","Terraza, brisa y domicilio","Mañana es el party boat: guardar energía"]],
+      party:[["Noche","🎉 Viernes en Getsemaní o el centro","⚠️ El barco sale temprano mañana"]]}},
+
+  {date:"2026-12-05", city:"ctg2", title:"Islas + fiesta en el agua", sub:"Último día completo", icons:"🛥️🎉",
+    ev:[],
+    opts:{
+      rec:[["~08:00","🎉 Party boat a Cholón (Barú)","Sábado = botes con DJ · tasa portuaria en efectivo ese día",true],
+           ["Noche","Cena de despedida: Celele o La Mulata","Celele: reservar",true],
+           ["Antes de dormir","Dejar la maleta lista","Jaime sale al aeropuerto a las 06:45"]],
+      chill:[["Día","Beach club en Barú (por carretera) o barco grande a Islas del Rosario","Playa con menos fiesta y menos golpes de lancha",true],
+             ["Día","Playa de Morros + terraza","Plan cero estrés"]],
+      party:[["Noche","Última rumba en Getsemaní","⚠️ Jaime vuela 09:35: calculen la hora de volver 😅"]]}},
+
+  {date:"2026-12-06", city:"ctg2", title:"Regreso a casa", sub:"Día de vuelos", icons:"✈️💛",
+    ev:[["06:45","Salir al aeropuerto","Jaime"],
+        ["09:35","Cartagena → Medellín","Jaime · Avianca AV9753 · llega 10:50"],
         ["14:10","Medellín → San Salvador","Jaime · Avianca AV370 · llega 15:50"],
         ["—","Regreso de Ariel","Por confirmar",true],
-        ["12:00","Check-out Airbnb",""]]},
+        ["12:00","Check-out Airbnb",""]],
+    opts:{}},
 ];
 
 const FLIGHTS = [
   {date:"Jue 26 nov", from:"SAL", to:"MDE", dep:"09:35", arr:"13:10", air:"Avianca AV369", who:"Jaime"},
   {date:"Jue 26 nov", from:"MDE", to:"CTG", dep:"16:35", arr:"17:50", air:"Avianca AV9718", who:"Jaime"},
   {date:"Sáb 28 nov", from:"CTG", to:"MDE", dep:"14:35", arr:"15:50", air:"Avianca AV9559", who:"Jaime & Ariel · asientos juntos"},
-  {date:"Mar 1 dic",  from:"MDE", to:"BOG", dep:"16:32", arr:"17:30", air:"Wingo", who:"Jaime & Ariel · asientos juntos"},
+  {date:"Mar 1 dic",  from:"MDE", to:"BOG", dep:"16:42", arr:"17:40", air:"Wingo P5 7291", who:"Jaime & Ariel · asientos juntos"},
   {date:"Vie 4 dic",  from:"BOG", to:"CTG", dep:"17:10", arr:"18:40", air:"LATAM LA4122", who:"Jaime & Ariel · mochila + mano 12 kg"},
   {date:"Dom 6 dic",  from:"CTG", to:"MDE", dep:"09:35", arr:"10:50", air:"Avianca AV9753", who:"Jaime"},
   {date:"Dom 6 dic",  from:"MDE", to:"SAL", dep:"14:10", arr:"15:50", air:"Avianca AV370", who:"Jaime"},
@@ -512,32 +599,46 @@ const chipsData = [["all","Todo"],...Object.entries(CITY).map(([k,c])=>[k,`${c.n
 function renderChips(){
   $("#chips").innerHTML = chipsData.map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${filtro===k}">${l}</button>`).join("");
 }
+// Modos del día
+const MODES = {rec:"⭐ Recomendado", chill:"😌 Tranquilo / resaca", party:"🎉 Fiesta"};
+let modo = "all";
+function renderModes(){
+  $("#modes").innerHTML = [["all","Ver todas las opciones"],...Object.entries(MODES)].map(([k,l])=>`<button class="chip mode-chip" data-mode="${k}" aria-pressed="${modo===k}">${l}</button>`).join("");
+}
+const fila = (e,tagTxt,tagCls) => `<div class="ev"><div class="t">${e[0]}</div><div class="x"><b>${e[1]}</b>${e[3]?`<span class="tag ${tagCls}">${tagTxt}</span>`:''}${e[2]?`<small>${e[2]}</small>`:""}</div></div>`;
 // Días
 const hoyISO = new Date().toLocaleDateString("sv-SE",{timeZone:"America/Bogota"});
+const abiertos = new Set([hoyISO]);
 function renderDays(){
   $("#days").innerHTML = DAYS.filter(d=>filtro==="all"||d.city===filtro).map(d=>{
     const dt = new Date(d.date+"T12:00:00");
     const c = CITY[d.city];
     const isToday = d.date===hoyISO;
-    return `<article class="day ${isToday?"today":""}" style="--c:${c.color}" open-state="${isToday}">
-      <button class="day-head" aria-expanded="${isToday}">
+    const isOpen = abiertos.has(d.date);
+    const opts = Object.entries(d.opts||{}).filter(([k])=>modo==="all"||modo===k).map(([k,items])=>
+      `<div class="opt opt-${k}"><div class="opt-h">${MODES[k]}</div>${items.map(e=>fila(e,"🎟️ reservar","res-tag")).join("")}</div>`).join("");
+    const fijos = d.ev.length ? `<div class="fixed-h">📌 Fijo</div>${d.ev.map(e=>fila(e,"pendiente","warn")).join("")}` : "";
+    return `<article class="day ${isToday?"today":""}" style="--c:${c.color}" open-state="${isOpen}" data-date="${d.date}">
+      <button class="day-head" aria-expanded="${isOpen}">
         <div class="day-date"><span>${DIAS[dt.getDay()]}</span><b>${dt.getDate()}</b><span>${MESES[dt.getMonth()]}</span></div>
         <div class="day-title"><h3>${d.title}${isToday?' <span class="tag">HOY</span>':''}</h3><p>${c.name} · ${d.sub}</p></div>
         <div class="day-icons">${d.icons}</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </button>
-      <div class="day-body">${d.ev.map(e=>`<div class="ev"><div class="t">${e[0]}</div><div class="x"><b>${e[1]}</b>${e[3]?'<span class="tag warn">pendiente</span>':''}${e[2]?`<small>${e[2]}</small>`:""}</div></div>`).join("")}</div>
+      <div class="day-body">${fijos}${opts}</div>
     </article>`;
   }).join("");
 }
 function setFiltro(f){ filtro=f; renderChips(); renderDays(); }
+renderModes();
 setFiltro("all");
 
 document.addEventListener("click", e=>{
   const chip = e.target.closest(".chip[data-f]"); if(chip){ setFiltro(chip.dataset.f); return; }
+  const mc = e.target.closest(".mode-chip"); if(mc){ modo=mc.dataset.mode; renderModes(); renderDays(); return; }
   const stop = e.target.closest(".stop"); if(stop){ setFiltro(stop.dataset.city); $("#itinerario").scrollIntoView(); return; }
   const head = e.target.closest(".day-head");
-  if(head){ const day=head.parentElement; const open=day.getAttribute("open-state")!=="true"; day.setAttribute("open-state",open); head.setAttribute("aria-expanded",open); }
+  if(head){ const day=head.parentElement; const open=day.getAttribute("open-state")!=="true"; day.setAttribute("open-state",open); head.setAttribute("aria-expanded",open); open?abiertos.add(day.dataset.date):abiertos.delete(day.dataset.date); }
 });
 
 // Vuelos
