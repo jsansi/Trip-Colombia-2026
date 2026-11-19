@@ -1,0 +1,6 @@
+# Carpeta con documentos sensibles: NUNCA se sube a GitHub
+privado/
+
+# Archivos basura de Windows
+Thumbs.db
+desktop.ini
