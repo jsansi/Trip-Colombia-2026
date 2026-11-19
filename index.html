@@ -102,6 +102,13 @@
   .flight-route .line::after{content:"✈";position:absolute;left:50%;top:-13px;transform:translateX(-50%);background:#fff;padding:0 6px;color:var(--terra)}
   .flight-times{display:flex;justify-content:space-between;font-size:.9rem}
   .who{margin-top:12px;font-size:.82rem;color:var(--muted)}
+  .fl-day{margin-bottom:28px}
+  .fl-day-h{font-size:1.15rem;margin:0 0 12px;padding-bottom:8px;border-bottom:2px dotted var(--rose)}
+  .flight-times span{font-size:.85rem}
+  .who-badge{font-size:.75rem;font-weight:700;border-radius:999px;padding:3px 10px;color:#fff}
+  .who-badge.jai{background:var(--sage)}
+  .who-badge.ari{background:var(--rose);color:var(--ink)}
+  .who-badge.both{background:var(--terra)}
   .home-art{height:110px;border-radius:16px;margin:-4px -4px 14px;display:grid;place-items:center}
   .home-art svg{height:90px}
   .card h3{font-size:1.15rem;margin-bottom:4px}
@@ -249,7 +256,7 @@
     <div class="eyebrow">En el aire</div>
     <h2 class="sec-title">Vuelos</h2>
     <p class="sec-sub">Lleguen al aeropuerto con 2 h de anticipación (3 h en internacionales).</p>
-    <div class="grid" id="flights"></div>
+    <div id="flights"></div>
   </div>
 </section>
 
@@ -650,12 +657,22 @@ document.addEventListener("click", e=>{
 });
 
 // Vuelos
-$("#flights").innerHTML = FLIGHTS.map(f=>`
-  <div class="card">
-    <div class="flight-top"><span>${f.date}</span><span>${f.air}</span></div>
-    <div class="flight-route"><b>${f.from}</b><div class="line"></div><b>${f.to}</b></div>
-    <div class="flight-times"><span>Sale <b>${f.dep}</b></span><span>Llega <b>${f.arr}</b></span></div>
-    <div class="who">👤 ${f.who}</div>
+const APT = {SAL:"San Salvador",MDE:"Medellín",CTG:"Cartagena",BOG:"Bogotá",RIC:"Richmond",FLL:"Fort Lauderdale",MIA:"Miami"};
+const DIA_VUELO = {"Jue 26 nov":"Jueves 26 de noviembre · Llegada a Cartagena","Sáb 28 nov":"Sábado 28 de noviembre · Cartagena → Medellín","Mar 1 dic":"Martes 1 de diciembre · Medellín → Bogotá","Vie 4 dic":"Viernes 4 de diciembre · Bogotá → Cartagena","Dom 6 dic":"Domingo 6 de diciembre · Regreso a casa"};
+const quien = w => w.startsWith("Jaime &") ? ["Ambos","both"] : w.startsWith("Ariel") ? ["Ariel","ari"] : ["Jaime","jai"];
+const grupos = [];
+FLIGHTS.forEach(f=>{ let g=grupos.find(x=>x.date===f.date); if(!g){g={date:f.date,fl:[]};grupos.push(g);} g.fl.push(f); });
+$("#flights").innerHTML = grupos.map(g=>`
+  <div class="fl-day">
+    <h3 class="fl-day-h">📅 ${DIA_VUELO[g.date]||g.date}</h3>
+    <div class="grid">${g.fl.sort((a,b)=>a.dep.localeCompare(b.dep)).map(f=>{ const [q,cls]=quien(f.who); const extra=f.who.split("·").slice(1).join("·").trim(); return `
+      <div class="card">
+        <div class="flight-top"><span class="who-badge ${cls}">${q}</span><span>${f.air}</span></div>
+        <div class="flight-route"><b>${f.from}</b><div class="line"></div><b>${f.to}</b></div>
+        <div class="flight-times"><span>${APT[f.from]||""}</span><span>${APT[f.to]||""}</span></div>
+        <div class="flight-times" style="margin-top:6px"><span>Sale <b>${f.dep}</b></span><span>Llega <b>${f.arr}</b></span></div>
+        ${extra?`<div class="who">${extra}</div>`:""}
+      </div>`;}).join("")}</div>
   </div>`).join("");
 
 // Alojamientos
