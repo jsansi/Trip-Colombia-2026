@@ -290,7 +290,7 @@
     <div class="eyebrow">Clima y estilo</div>
     <h2 class="sec-title">Qué ponerse</h2>
     <p class="sec-sub">Tres climas en un viaje: calor del Caribe, primavera paisa y frío bogotano.</p>
-    <div class="grid" id="clima"></div>
+    <h3 class="sub-h" style="margin-top:0">🌡️ Ahora mismo y próximos días</h3><div class="grid" id="live-weather"><div class="card">Cargando el clima en vivo…</div></div><p class="sec-sub" style="font-size:.8rem;margin-top:8px">Datos en vivo de Open-Meteo, se actualizan cada vez que abres la página.</p><h3 class="sub-h">📊 Promedio para estas fechas</h3><div class="grid" id="clima"></div>
 
     <h3 class="sub-h">🕺 Dress code para salir de noche</h3>
     <p class="sec-sub" style="margin-bottom:14px">En Medellín (Provenza / El Poblado) <b>lo revisan en la puerta</b>. En Cartagena y Bogotá es un poco más relajado, pero esto funciona en todos lados.</p>
@@ -338,7 +338,7 @@
     <h2 class="sec-title">Tips del viaje</h2>
     <p class="sec-sub">&nbsp;</p>
     <div class="grid">
-      <div class="card"><h3>🧳 Equipaje</h3><p>Solo el vuelo Cartagena → Medellín incluye maleta de bodega. LATAM incluye mano de 12 kg, el vuelo internacional de Jaime es tarifa Light y Wingo "GO Standard" suele incluir solo artículo personal. Si llevan maleta grande, cómprenla antes en la web: en el aeropuerto sale más cara.</p></div>
+      <div class="card"><h3>🛂 Pasaporte y visa</h3><p>Pasaporte vigente (idealmente 6 meses). Pasaporte de la Unión Europea: sin visa hasta 90 días. Salvadoreños: varias fuentes dicen que no necesitan visa, pero confírmenlo en la <a href="https://www.cancilleria.gov.co/tramites_servicios/visa/requisitos" target="_blank" rel="noopener">lista oficial de la Cancillería</a>.</p></div><div class="card"><h3>📝 Check-MIG</h3><p>Formulario gratis de Migración Colombia, desde 72 h antes del vuelo internacional. Oficialmente es opcional, pero algunas aerolíneas lo piden: mejor llenarlo. Solo en el <a href="https://apps.migracioncolombia.gov.co/pre-registro/" target="_blank" rel="noopener">portal oficial</a> (hay páginas falsas que cobran).</p></div><div class="card"><h3>🇺🇸 Regreso a EE. UU.</h3><p>Con green card física vigente + pasaporte. Se pasa migración y aduana en el primer aeropuerto de llegada (Miami).</p></div><div class="card"><h3>🧳 Equipaje</h3><p>Solo el vuelo Cartagena → Medellín incluye maleta de bodega. LATAM incluye mano de 12 kg, el vuelo internacional de Jaime es tarifa Light y Wingo "GO Standard" suele incluir solo artículo personal. Si llevan maleta grande, cómprenla antes en la web: en el aeropuerto sale más cara.</p></div>
       <div class="card"><h3>🚕 Moverse</h3><p>Uber, InDriver o taxi del aeropuerto. Los anfitriones recomiendan Uber o InDriver como opciones seguras.</p></div>
       <div class="card"><h3>⏳ Días de traslado</h3><p>El check-out es a las 11:00 y los vuelos salen en la tarde. Pregunten al anfitrión si pueden dejar las maletas un rato, o usen un guardaequipaje.</p></div>
       <div class="card"><h3>🌦️ Clima</h3><p>Cartagena ~30 °C y húmedo. Medellín ~22 °C, la "eterna primavera". Bogotá ~14 °C, con noches frías y lluvia. ¡Capas!</p></div>
@@ -390,9 +390,9 @@ const DAYS = [
            ["Noche","Rumba en Getsemaní o el centro","Viernes: muy buena noche. Mañana el check-out es a las 11"]],
       chill:[["Mañana","Playa frente al Airbnb o jacuzzi",""],
              ["Tarde","Paseo corto por el centro + helado","Desde las 4 pm"],
-             ["Noche","Cena en La Cocina de Pepina","Pescado frito top"]],
+             ["16:30","🚶 Free tour del centro histórico (Civitatis)","⭐ Recomendado · se paga con propina al final",true],["Noche","Cena en La Cocina de Pepina","Pescado frito top"]],
       party:[["Atardecer","Catamarán al atardecer con música","Por la bahía, con tragos",true],
-             ["Noche","Centro (Eivissa) o Getsemaní (Seven 7)","Reggaetón y crossover · cover ~20–50k"]]}},
+             ["Noche","Centro (Eivissa) o Getsemaní (Seven 7)","Reggaetón y crossover · cover ~20–50k"],["Antes de salir","🍸 51 Sky Bar (Bocagrande)","⭐ Recomendado por amigos · rooftop en el piso 51 del Hotel Estelar, el bar más alto de Colombia"]]}},
 
   {date:"2026-11-28", city:"mde", title:"Rumbo a Medellín", sub:"Traslado + Provenza", icons:"✈️🎉",
     look:"Para volar: jeans, tenis y una chaqueta ligera (Medellín refresca). Noche en Provenza: dress code completo, pantalón largo y zapatos cerrados; nada de shorts, chanclas ni gorra.",
@@ -402,14 +402,14 @@ const DAYS = [
     opts:{
       rec:[["23:00","🎉 Sábado de reggaetón en Provenza o Parque Lleras","Medallo Club (de Blessd) ~30k cover · a minutos del Airbnb · mañana no hay alarma"]],
       chill:[["Noche","Cena en Provenza + jacuzzi del loft",""]],
-      party:[["23:00","Provenza → Parque Lleras hasta que el cuerpo aguante","Mañana arrancamos después del mediodía 😎"]]}},
+      party:[["~20:00","🚌 Party bus por Medellín","⭐ Recomendado · ~2 h con DJ y barra libre de cerveza · desde ~USD 30 · luego directo a Provenza",true],["23:00","Provenza → Parque Lleras hasta que el cuerpo aguante","Mañana arrancamos después del mediodía 😎"]]}},
 
   {date:"2026-11-29", city:"mde", title:"Comuna 13 y miradores", sub:"Domingo sin alarma", icons:"🎨🚡",
     look:"Casual y cómodo: tenis, gorra y bloqueador. Para la noche, una chaqueta ligera.",
     ev:[],
     opts:{
       rec:[["11–12 h","Despertar tranquilo + almuerzo paisa","Hacienda o Mondongo's (pidan carne asada o pollo)"],
-           ["14:00","Graffitour Comuna 13 (tour de la tarde)","Escaleras eléctricas, murales y hip-hop en la calle",true],
+           ["14:00","Graffitour Comuna 13 (tour de la tarde)","Escaleras eléctricas, murales y hip-hop · hay free tour de Civitatis (con propina)",true],
            ["Atardecer","Metrocable Línea K","La ciudad desde el aire · ~4k"],
            ["Noche","Cena tranquila y a dormir temprano","⏰ Mañana Guatapé sale ~7 am"]],
       chill:[["Tarde","Jardín Botánico + Parque Explora","Plano y relajado"],
@@ -446,9 +446,9 @@ const DAYS = [
     opts:{
       rec:[["~09:30","Catedral de Sal de Zipaquirá","~1 h de viaje · entrada ~110–125k · comprar online",true],
            ["Tarde","Almuerzo en Zipaquirá","Hay sede de La Puerta Falsa allá"],
-           ["Noche","Alumbrado navideño 🎄 + cena en Chapinero",""]],
+           ["Noche","Alumbrado navideño 🎄 + cena en Masa 81","⭐ Recomendado por amigos · cocina creativa en la Carrera 9",true]],
       chill:[["Mañana","Museo del Oro + Plaza de Bolívar + Museo Botero","Todo cerca · Botero es gratis"],
-             ["Almuerzo","La Puerta Falsa (desde 1816)",""]],
+             ["Almuerzo","La Puerta Falsa (desde 1816)",""],["Tarde","🚶 Free tour de La Candelaria (Civitatis)","⭐ Recomendado · con propina · calles empinadas, con calma",true]],
       party:[["Noche","Zona T / Zona Rosa","Miércoles más suave: Presea Rooftop o El Macho Cantina · mañana se arranca tarde"]]}},
 
   {date:"2026-12-03", city:"bog", title:"Monserrate al atardecer + Andrés", sub:"Mañana libre, noche de fiesta", icons:"⛰️🎉",
@@ -461,7 +461,7 @@ const DAYS = [
            ["Noche","🎉 Andrés Carne de Res","Comida + fiesta legendaria · ~45 min en taxi · mañana el check-out es a las 11",true]],
       chill:[["Tarde","Usaquén: paseo, tiendas y cafés",""],
              ["Noche","Cena en Usaquén",""]],
-      party:[["Noche","Andrés Carne de Res (Chía) o Andrés D.C. + Zona T","Jueves de fiesta bogotana",true]]}},
+      party:[["Noche","Andrés Carne de Res (Chía) o Andrés D.C. + Zona T","Jueves de fiesta bogotana",true],["Noche","🎉 Theatron (Chapinero)","⭐ Recomendado · complejo gigante con muchas salas de música distinta, entre los 100 mejores clubes del mundo · cerca del Airbnb"]]}},
 
   {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado + noche tranquila", icons:"✈️🏖️",
     look:"Sales con frío y llegas a 30°: viaja en capas y lleva una muda fresca en el equipaje de mano. Noche: ropa fresca.",
@@ -479,7 +479,7 @@ const DAYS = [
     ev:[],
     opts:{
       rec:[["~08:00","🎉 Party boat a Cholón (Barú)","Sábado = botes con DJ · tasa portuaria en efectivo ese día",true],
-           ["Noche","Cena de despedida tranquila: Celele o La Mulata","Celele: reservar",true],
+           ["Alternativa","🏝️ Bora Bora Beach o Pao Pao (Isla Grande, Rosario)","⭐ Recomendados · Bora Bora: DJ y fiesta · Pao Pao: piscina y house · ~USD 90–170 con lancha · muelle ~28k en efectivo · Civitatis tiene combo con los dos",true],["Noche","Cena de despedida tranquila: Celele o La Mulata","Celele: reservar",true],
            ["Antes de dormir","Dejar la maleta lista","⏰ Jaime sale al aeropuerto a las 06:45"]],
       chill:[["Día","Beach club en Barú (por carretera) o barco grande a Islas del Rosario","Menos fiesta y menos golpes de lancha",true],
              ["Día","Playa de Morros + terraza","Plan cero estrés"]],
@@ -547,7 +547,7 @@ const FOOD = {
     ["La Puerta Falsa","La Candelaria","10–20k","El restaurante más antiguo de Bogotá (1816). Tamal y chocolate. Al lado de la Plaza de Bolívar."],
     ["Casa Vieja","Varias sedes","medio","Ajiaco de receta tradicional."],
     ["Antigua Santa Fe","—","medio","Famoso por su ajiaco."],
-    ["Andrés Carne de Res 🎉","Chía (45 min)","alto","Comida + fiesta legendaria. Reservar. Andrés D.C. (Zona T) queda más cerca."],
+    ["Masa 81 ⭐","Carrera 9","medio-alto","Recomendado por amigos · cocina contemporánea y creativa."],["Andrés Carne de Res 🎉","Chía (45 min)","alto","Comida + fiesta legendaria. Reservar. Andrés D.C. (Zona T) queda más cerca."],
     ["Chapinero y Zona G","Cerca del Airbnb","variado","La zona gastronómica más cercana."]],
    dishes:["🥣 Ajiaco","🫔 Tamal tolimense","🍫 Chocolate santafereño","🥯 Almojábana y pandebono","🍢 Fritanga","🐷 Lechona","🔥 Canelazo (caliente, con aguardiente)"]},
 };
@@ -572,7 +572,7 @@ const LOOKS = [
 
 const PRICES = [
   ["🏖️ Cartagena"],
-  ["Party boat a Cholón","USD 70–100","+ tasa portuaria 26–32k ese día","si"],
+  ["Party boat a Cholón","USD 70–100","+ tasa portuaria 26–32k ese día","si"],["Bora Bora / Pao Pao (beach clubs)","USD 90–170","Con lancha · + muelle ~28k en efectivo","si"],["51 Sky Bar","Consumo","Rooftop piso 51, Bocagrande","no"],["Free tours Civitatis","Propina","Centro / Comuna 13 / La Candelaria","si"],
   ["Castillo San Felipe","38.000","Extranjeros · 7 am–6 pm","no"],
   ["Convento de La Popa","15–20k","Subir en taxi","no"],
   ["Ciudad Amurallada y Getsemaní","Gratis","","no"],
@@ -583,14 +583,14 @@ const PRICES = [
   ["Comuna 13 graffitour","Propina o USD 20–40","Free tour o pagado","si"],
   ["Metro + Metrocable","~4.000","Por trayecto","no"],
   ["Metrocable a Arví (línea L)","12–15k","Aparte del metro","no"],
-  ["Discotecas Provenza / Lleras (cover)","20–60k","Medallo Club ~30k","no"],
+  ["Discotecas Provenza / Lleras (cover)","20–60k","Medallo Club ~30k","no"],["Party bus","desde ~USD 30","~2 h, barra libre de cerveza","si"],
   ["🏔️ Bogotá"],
   ["Catedral de Sal","110–125k","Extranjeros · comprar online","si"],
   ["Monserrate (teleférico o funicular)","27–32k","Ida y vuelta, lun–sáb","no"],
   ["Museo del Oro","~5.000","Domingo gratis · lunes cerrado","no"],
   ["Museo Botero","Gratis","Martes cerrado","no"],
   ["Andrés Carne de Res","~150–250k","Cover + comida + tragos · ir en taxi","si"],
-  ["Discotecas Zona T / Zona Rosa (cover)","20–50k","Algunas hasta las 5 am","no"],
+  ["Discotecas Zona T / Zona Rosa (cover)","20–50k","Algunas hasta las 5 am","no"],["Theatron","Cover variable","Chapinero · jue–sáb","no"],
 ];
 
 /* ========= ILUSTRACIONES BOHO ========= */
@@ -717,6 +717,22 @@ $("#looks").innerHTML = LOOKS.map(l=>`<div class="card look"><h3>${l[0]}</h3><p>
 $("#prices").innerHTML = `<thead><tr><th>Lugar</th><th>Precio</th><th></th></tr></thead><tbody>` +
   PRICES.map(p=> p.length===1 ? `<tr class="city-row"><td colspan="3">${p[0]}</td></tr>` :
     `<tr><td><b>${p[0]}</b>${p[2]?`<small>${p[2]}</small>`:""}</td><td style="white-space:nowrap">${p[1]}</td><td>${p[3]==="si"?'<span class="res si">Reservar</span>':'<span class="res no">En el lugar</span>'}</td></tr>`).join("") + `</tbody>`;
+
+// Clima en vivo (Open-Meteo, sin clave)
+const WX = {0:"☀️ Despejado",1:"🌤️ Casi despejado",2:"⛅ Parcialmente nublado",3:"☁️ Nublado",45:"🌫️ Niebla",48:"🌫️ Niebla",51:"🌦️ Llovizna",53:"🌦️ Llovizna",55:"🌦️ Llovizna",61:"🌧️ Lluvia",63:"🌧️ Lluvia",65:"🌧️ Lluvia fuerte",80:"🌦️ Chubascos",81:"🌧️ Chubascos",82:"⛈️ Chubascos fuertes",95:"⛈️ Tormenta",96:"⛈️ Tormenta",99:"⛈️ Tormenta"};
+const WCITIES = [["🏖️ Cartagena",10.39,-75.51],["🌸 Medellín",6.21,-75.57],["🏔️ Bogotá",4.65,-74.06]];
+(async()=>{
+  try{
+    const url = "https://api.open-meteo.com/v1/forecast?latitude="+WCITIES.map(c=>c[1]).join(",")+"&longitude="+WCITIES.map(c=>c[2]).join(",")+"&current=temperature_2m,weather_code,relative_humidity_2m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=America%2FBogota&forecast_days=3";
+    const r = await fetch(url); if(!r.ok) throw 0;
+    let data = await r.json(); if(!Array.isArray(data)) data=[data];
+    const dn = s => DIAS[new Date(s+"T12:00:00").getDay()];
+    $("#live-weather").innerHTML = data.map((d,i)=>`<div class="card clima-card"><b>${WCITIES[i][0]}</b>
+      <div class="temp">${Math.round(d.current.temperature_2m)}°</div>
+      <small style="color:var(--muted)">${WX[d.current.weather_code]||""} · humedad ${d.current.relative_humidity_2m}%</small>
+      <p>${d.daily.time.map((t,j)=>`<b>${dn(t)}</b> ${Math.round(d.daily.temperature_2m_min[j])}–${Math.round(d.daily.temperature_2m_max[j])}° · 💧${d.daily.precipitation_probability_max[j]??0}%`).join("<br>")}</p></div>`).join("");
+  }catch(e){ $("#live-weather").innerHTML = '<div class="card">No se pudo cargar el clima en vivo. Abajo están los promedios.</div>'; }
+})();
 
 // Checklist (se guarda en el navegador de cada persona)
 const KEY="trip-co-2026-check";
