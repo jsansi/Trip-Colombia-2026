@@ -88,6 +88,7 @@
   .fixed-h{color:var(--muted)}
   .opt{border-radius:14px;padding:8px 14px 4px;margin-top:12px}
   .opt .ev:first-of-type{border-top:0}
+  .look-row{background:var(--sand);border-radius:12px;padding:10px 14px;font-size:.9rem;margin:2px 0 10px}
   .opt-rec{background:#FBF1DE}.opt-rec .opt-h{color:#A9761A}
   .opt-chill{background:#EEF1E4}.opt-chill .opt-h{color:#5E6B3A}
   .opt-party{background:#F8E6DD}.opt-party .opt-h{color:var(--clay)}
@@ -365,6 +366,7 @@ const CITY = {
 
 const DAYS = [
   {date:"2026-11-26", city:"ctg1", title:"¡Llegada a Cartagena!", sub:"Día de vuelos", icons:"✈️🏠",
+    look:"Para volar: cómodo y en capas. Noche: él, pantalón y camisa de lino; ella, vestido fresco y plataforma baja.",
     ev:[["06:30","Richmond → Fort Lauderdale","Ariel · JetBlue B6 1145 · llega 09:01"],
         ["09:35","San Salvador → Medellín","Jaime · Avianca AV369 · llega 13:10"],
         ["09:47","Fort Lauderdale → Cartagena","Ariel · JetBlue B6 1783 · llega 12:45 (conexión corta en FLL)"],
@@ -372,113 +374,119 @@ const DAYS = [
         ["16:35","Medellín → Cartagena","Jaime · Avianca AV9718 · llega 17:50"],
         ["~18:15","Jaime llega al Airbnb","¡Juntos en Cartagena! 🥂"]],
     opts:{
-      rec:[["13–15 h","Ariel: almuerzo cerca del Airbnb mientras llega la hora del check-in","Preguntar al anfitrión si se puede entrar antes o dejar la maleta"],
+      rec:[["13–15 h","Ariel: almuerzo cerca mientras llega la hora del check-in","Preguntar al anfitrión si se puede entrar antes o dejar la maleta"],
            ["Noche","Cena y paseo por Getsemaní","Plaza de la Trinidad: ambiente callejero para arrancar suave"]],
-      chill:[["Noche","Jacuzzi con vista al mar + comida a domicilio","Llegar, desempacar y brindar 🥂"]],
-      party:[["Noche","Getsemaní de rumba","Los jueves ya hay ambiente: bares de la Calle de la Media Luna"]]}},
+      chill:[["Noche","Jacuzzi con vista al mar + comida a domicilio","Desempacar y brindar 🥂"]],
+      party:[["Noche","Getsemaní de rumba","Los jueves ya hay ambiente. Mañana se arranca tarde 😌"]]}},
 
-  {date:"2026-11-27", city:"ctg1", title:"Cartagena amurallada", sub:"Centro histórico", icons:"🌴🎉",
+  {date:"2026-11-27", city:"ctg1", title:"Cartagena amurallada", sub:"Despertar tranquilo + rumba", icons:"🌴🎉",
+    look:"Día: lino o algodón claro, sombrero, lentes y tenis livianos (adoquines). Noche: él, camisa de lino o guayabera con pantalón largo; ella, vestido fresco. Nada de tacón fino.",
     ev:[],
     opts:{
-      rec:[["8–11 am","La Popa (en taxi) + Ciudad Amurallada","Temprano, antes del calor fuerte"],
-           ["Almuerzo","El Coroncoro o Espíritu Santo","Típico, rico y barato"],
-           ["Tarde","Siesta 😴 + atardecer en la muralla",""],
-           ["Noche","Rumba en Getsemaní","Viernes: de las mejores noches para salir"]],
+      rec:[["10–11 h","Despertar sin alarma + brunch",""],
+           ["11:30","La Popa en taxi","Vista de toda la ciudad, ~45 min"],
+           ["Tarde","Siesta 😴 + piscina o jacuzzi","Lo más fuerte del calor"],
+           ["16:30","Ciudad Amurallada + atardecer en la muralla","Ya bajó el sol"],
+           ["Noche","Rumba en Getsemaní o el centro","Viernes: muy buena noche. Mañana el check-out es a las 11"]],
       chill:[["Mañana","Playa frente al Airbnb o jacuzzi",""],
-             ["Tarde","Paseo corto por el centro + helado","Desde las 4 pm, cuando baja el sol"],
+             ["Tarde","Paseo corto por el centro + helado","Desde las 4 pm"],
              ["Noche","Cena en La Cocina de Pepina","Pescado frito top"]],
       party:[["Atardecer","Catamarán al atardecer con música","Por la bahía, con tragos",true],
              ["Noche","Centro (Eivissa) o Getsemaní (Seven 7)","Reggaetón y crossover · cover ~20–50k"]]}},
 
-  {date:"2026-11-28", city:"mde", title:"Rumbo a Medellín", sub:"Traslado", icons:"✈️🌸",
-    ev:[["11:00","Check-out Cartagena",""],
+  {date:"2026-11-28", city:"mde", title:"Rumbo a Medellín", sub:"Traslado + Provenza", icons:"✈️🎉",
+    look:"Para volar: jeans, tenis y una chaqueta ligera (Medellín refresca). Noche en Provenza: dress code completo, pantalón largo y zapatos cerrados; nada de shorts, chanclas ni gorra.",
+    ev:[["10:30","Despertar tranquilo y check-out (11:00)",""],
         ["14:35","Cartagena → Medellín","Ambos · Avianca AV9559 · llega 15:50"],
         ["~17:00","Check-in Airbnb","Loft de diseño en El Poblado · el aeropuerto queda a ~1 h"]],
     opts:{
-      rec:[["Noche","Cena en Provenza + un bar","Para conocer la zona sin acabarse"]],
-      chill:[["Noche","Cena en el centro comercial de al lado + jacuzzi del loft","Mañana es Guatapé, temprano"]],
-      party:[["23:00","🎉 Sábado de reggaetón en Provenza o Parque Lleras","Medallo Club (de Blessd) ~30k cover · a minutos del Airbnb"],
-             ["⚠️","Mañana hay Guatapé a las 7 am","Si la noche se alarga, miren el plan tranquilo del domingo"]]}},
+      rec:[["23:00","🎉 Sábado de reggaetón en Provenza o Parque Lleras","Medallo Club (de Blessd) ~30k cover · a minutos del Airbnb · mañana no hay alarma"]],
+      chill:[["Noche","Cena en Provenza + jacuzzi del loft",""]],
+      party:[["23:00","Provenza → Parque Lleras hasta que el cuerpo aguante","Mañana arrancamos después del mediodía 😎"]]}},
 
-  {date:"2026-11-29", city:"mde", title:"Guatapé + Piedra del Peñol", sub:"Excursión de día completo", icons:"🪨🚤",
+  {date:"2026-11-29", city:"mde", title:"Comuna 13 y miradores", sub:"Domingo sin alarma", icons:"🎨🚡",
+    look:"Casual y cómodo: tenis, gorra y bloqueador. Para la noche, una chaqueta ligera.",
+    ev:[],
+    opts:{
+      rec:[["11–12 h","Despertar tranquilo + almuerzo paisa","Hacienda o Mondongo's (pidan carne asada o pollo)"],
+           ["14:00","Graffitour Comuna 13 (tour de la tarde)","Escaleras eléctricas, murales y hip-hop en la calle",true],
+           ["Atardecer","Metrocable Línea K","La ciudad desde el aire · ~4k"],
+           ["Noche","Cena tranquila y a dormir temprano","⏰ Mañana Guatapé sale ~7 am"]],
+      chill:[["Tarde","Jardín Botánico + Parque Explora","Plano y relajado"],
+             ["Noche","Domicilio + jacuzzi","Guardar energía para el Peñol"]],
+      party:[["Noche","Hoy no 😉","Mañana hay madrugada para Guatapé. ¡El domingo igual es flojo!"]]}},
+
+  {date:"2026-11-30", city:"mde", title:"Guatapé + Piedra del Peñol", sub:"Excursión de día completo", icons:"🪨🚤",
+    look:"Ropa deportiva, tenis con buen agarre, gorra, bloqueador, impermeable liviano y efectivo para la entrada.",
     ev:[],
     opts:{
       rec:[["~07:00","Tour a Guatapé","~2 h de viaje · llevar efectivo",true],
            ["Mañana","Subir La Piedra del Peñol","740 escalones · entrada ~35k (solo efectivo)"],
            ["Tarde","Pueblo de colores + paseo en bote",""],
-           ["Noche","Descanso","Mañana hay más 😉"]],
-      chill:[["Mañana","😵 ¿Resaca? Muevan Guatapé al lunes","Avisen al tour con tiempo, o busquen uno que salga más tarde"],
-             ["Mediodía","Bandeja paisa en Hacienda o Mondongo's","Cura todo"],
-             ["Tarde","Metrocable K + plaza de Arví o Pueblito Paisa","Vistas sin esfuerzo"]],
-      party:[["Noche","Domingo flojo","Algunos bares de Provenza abiertos, pero la mayoría de discotecas descansa"]]}},
-
-  {date:"2026-11-30", city:"mde", title:"Comuna 13 y miradores", sub:"Arte urbano + vistas", icons:"🎨🚡",
-    ev:[],
-    opts:{
-      rec:[["Mañana","Graffitour Comuna 13","Escaleras eléctricas, murales y hip-hop en la calle",true],
-           ["Atardecer","Metrocable Línea K","La ciudad desde el aire · ~4k"],
-           ["Noche","Miradores de Las Palmas + cena en Chuscalito","Medellín iluminada"]],
-      chill:[["Mañana","Jardín Botánico + Parque Explora","Plano y relajado"],
-             ["Tarde","Plaza Botero + Museo de Antioquia",""],
-             ["Nota","Si movieron Guatapé para hoy","La Comuna 13 la pueden hacer ayer"]],
-      party:[["Noche","Rooftop en El Poblado o bar en Provenza","El lunes está más tranquilo, pero algo hay"]]}},
+           ["Noche","Miradores de Las Palmas + cena en Chuscalito","O descanso total"]],
+      chill:[["Día","Cambiar Guatapé por un plan suave","Plaza Botero + Museo de Antioquia + Pueblito Paisa"],
+             ["Noche","Descanso",""]],
+      party:[["Noche","Rooftop tranquilo en El Poblado","Mañana el check-out es a las 11, sin apuro"]]}},
 
   {date:"2026-12-01", city:"bog", title:"Rumbo a Bogotá", sub:"Traslado", icons:"✈️⛰️",
-    ev:[["11:00","Check-out Medellín","Pregunten si pueden dejar las maletas un rato"],
+    look:"Para volar: jeans y tenis. Ten a mano un suéter y una chaqueta: en Bogotá de noche hace ~10°.",
+    ev:[["10:30","Despertar tranquilo y check-out (11:00)","Pregunten si pueden dejar las maletas un rato"],
         ["~13:30","Salir al aeropuerto","~1 h de camino"],
         ["16:42","Medellín → Bogotá","Ambos · Wingo P5 7291 · llega 17:40 (nuevo horario)"],
-        ["~19:00","Check-in Airbnb","Espectacular vista en Chapinero · hora pico, calculen tráfico"]],
+        ["~19:00","Check-in Airbnb","Espectacular vista en Chapinero · hora pico"]],
     opts:{
       rec:[["Mañana","Desayuno típico (Desayunadero La 10) + paseo por El Poblado",""],
-           ["Noche","Cena tranquila en Chapinero o Zona G","Bogotá está a 2.600 m: agua y poco trago esta noche"]],
-      chill:[["Mañana","Dormir hasta tarde y check-out justo",""],
-             ["Noche","Domicilio y descanso",""]],
+           ["Noche","Cena tranquila en Chapinero o Zona G","Bogotá está a 2.600 m: agua y poco trago hoy"]],
+      chill:[["Noche","Domicilio y descanso",""]],
       party:[["Noche","Mejor hoy no 😉","La primera noche en la altura el trago pega el doble"]]}},
 
   {date:"2026-12-02", city:"bog", title:"Catedral de Sal", sub:"Zipaquirá", icons:"⛪✨",
+    look:"Jeans, tenis y chaqueta (adentro de la mina hace frío y hay humedad). Para la noche: abrigo y paraguas.",
     ev:[],
     opts:{
-      rec:[["~09:00","Catedral de Sal de Zipaquirá","~1 h de viaje · entrada ~110–125k · comprar online",true],
+      rec:[["~09:30","Catedral de Sal de Zipaquirá","~1 h de viaje · entrada ~110–125k · comprar online",true],
            ["Tarde","Almuerzo en Zipaquirá","Hay sede de La Puerta Falsa allá"],
            ["Noche","Alumbrado navideño 🎄 + cena en Chapinero",""]],
-      chill:[["Mañana","Museo del Oro + Plaza de Bolívar + Museo Botero","Todo junto y cerca · Botero es gratis"],
-             ["Almuerzo","La Puerta Falsa (desde 1816)","Tamal y chocolate"],
-             ["Nota","La Catedral de Sal se puede mover a mañana",""]],
-      party:[["Noche","Zona T / Zona Rosa","Miércoles más suave: Presea Rooftop o El Macho Cantina"]]}},
+      chill:[["Mañana","Museo del Oro + Plaza de Bolívar + Museo Botero","Todo cerca · Botero es gratis"],
+             ["Almuerzo","La Puerta Falsa (desde 1816)",""]],
+      party:[["Noche","Zona T / Zona Rosa","Miércoles más suave: Presea Rooftop o El Macho Cantina · mañana se arranca tarde"]]}},
 
-  {date:"2026-12-03", city:"bog", title:"Monserrate + rumba", sub:"Vista y fiesta", icons:"⛰️🎉",
+  {date:"2026-12-03", city:"bog", title:"Monserrate al atardecer + Andrés", sub:"Mañana libre, noche de fiesta", icons:"⛰️🎉",
+    look:"Día en capas con impermeable. Noche en Andrés: abrigo de verdad (8–10°). Él, jeans, camisa y chaqueta; ella, jeans o vestido con medias, top y botines.",
     ev:[],
     opts:{
-      rec:[["Mañana","Monserrate en teleférico o funicular","Temprano, antes de las nubes · ~27–32k"],
-           ["Almuerzo","Ajiaco en Casa Vieja o Antigua Santa Fe",""],
-           ["Tarde","Museo del Oro (si no fueron ayer)","Cerrado los lunes"],
-           ["Noche","🎉 Andrés Carne de Res","Comida + fiesta legendaria · ~45 min en taxi",true]],
+      rec:[["10–11 h","Despertar tranquilo + brunch en Chapinero",""],
+           ["Mediodía","Ajiaco en Casa Vieja o Antigua Santa Fe",""],
+           ["16:00","Monserrate en teleférico + atardecer","La ciudad iluminándose · ~27–32k"],
+           ["Noche","🎉 Andrés Carne de Res","Comida + fiesta legendaria · ~45 min en taxi · mañana el check-out es a las 11",true]],
       chill:[["Tarde","Usaquén: paseo, tiendas y cafés",""],
-             ["Noche","Cena en Usaquén y a dormir temprano","Mañana hay vuelo"]],
-      party:[["Noche","Andrés Carne de Res (Chía) o Andrés D.C. + Zona T","Jueves de fiesta bogotana · algunas zonas abren hasta las 5 am",true]]}},
+             ["Noche","Cena en Usaquén",""]],
+      party:[["Noche","Andrés Carne de Res (Chía) o Andrés D.C. + Zona T","Jueves de fiesta bogotana",true]]}},
 
-  {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado", icons:"✈️🏖️",
-    ev:[["11:00","Check-out Bogotá","Dejar maletas o almorzar cerca"],
+  {date:"2026-12-04", city:"ctg2", title:"De vuelta al mar", sub:"Traslado + noche tranquila", icons:"✈️🏖️",
+    look:"Sales con frío y llegas a 30°: viaja en capas y lleva una muda fresca en el equipaje de mano. Noche: ropa fresca.",
+    ev:[["10:30","Despertar tranquilo y check-out (11:00)","Dejar las maletas o almorzar cerca"],
         ["~14:00","Salir al aeropuerto","Viernes = tráfico"],
         ["17:10","Bogotá → Cartagena","Ambos · LATAM LA4122 · llega 18:40"],
         ["~19:15","Check-in Airbnb","Loft frente a la playa con terraza privada"]],
     opts:{
-      rec:[["Mediodía","Almuerzo de despedida en Zona G / Chapinero",""],
-           ["Noche","Terraza del loft + cena en Getsemaní",""]],
-      chill:[["Noche","Terraza, brisa y domicilio","Mañana es el party boat: guardar energía"]],
-      party:[["Noche","🎉 Viernes en Getsemaní o el centro","⚠️ El barco sale temprano mañana"]]}},
+      rec:[["Noche","Terraza del loft + cena tranquila","⏰ Mañana el party boat sale ~8 am: la fiesta es en el barco 🛥️"]],
+      chill:[["Noche","Terraza, brisa y domicilio",""]],
+      party:[["Noche","Un par de tragos en Getsemaní, pero temprano","Mañana a las ~8 am es el party boat"]]}},
 
   {date:"2026-12-05", city:"ctg2", title:"Islas + fiesta en el agua", sub:"Último día completo", icons:"🛥️🎉",
+    look:"Barco: traje de baño puesto, camisa o pareo, zapatos de agua, bolsa seca para el celular y lentes con cordón. Nada de valor. Noche: lino o vestido fresco.",
     ev:[],
     opts:{
       rec:[["~08:00","🎉 Party boat a Cholón (Barú)","Sábado = botes con DJ · tasa portuaria en efectivo ese día",true],
-           ["Noche","Cena de despedida: Celele o La Mulata","Celele: reservar",true],
-           ["Antes de dormir","Dejar la maleta lista","Jaime sale al aeropuerto a las 06:45"]],
-      chill:[["Día","Beach club en Barú (por carretera) o barco grande a Islas del Rosario","Playa con menos fiesta y menos golpes de lancha",true],
+           ["Noche","Cena de despedida tranquila: Celele o La Mulata","Celele: reservar",true],
+           ["Antes de dormir","Dejar la maleta lista","⏰ Jaime sale al aeropuerto a las 06:45"]],
+      chill:[["Día","Beach club en Barú (por carretera) o barco grande a Islas del Rosario","Menos fiesta y menos golpes de lancha",true],
              ["Día","Playa de Morros + terraza","Plan cero estrés"]],
-      party:[["Noche","Última rumba en Getsemaní","⚠️ Jaime vuela 09:35: calculen la hora de volver 😅"]]}},
+      party:[["Noche","Última rumba en Getsemaní","⚠️ Jaime vuela a las 09:35 (sale 06:45): ¡ojo con la hora de volver!"]]}},
 
   {date:"2026-12-06", city:"ctg2", title:"Regreso a casa", sub:"Día de vuelos", icons:"✈️💛",
+    look:"Cómodo para volar, con una chaqueta para el avión.",
     ev:[["06:45","Jaime sale al aeropuerto","Despedida 💛"],
         ["09:35","Cartagena → Medellín","Jaime · Avianca AV9753 · llega 10:50"],
         ["~11:15","Ariel: check-out y salida al aeropuerto","Check-out máximo 12:00 · vuelo internacional: 3 h antes"],
@@ -640,7 +648,7 @@ function renderDays(){
         <div class="day-icons">${d.icons}</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </button>
-      <div class="day-body">${fijos}${opts}</div>
+      <div class="day-body">${d.look?`<div class="look-row"><b>👗 Qué ponerse:</b> ${d.look}</div>`:""}${fijos}${opts}</div>
     </article>`;
   }).join("");
 }
